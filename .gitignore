@@ -1,0 +1,22 @@
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Generated plots, images, and animations
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mp4
+*.avi
+
+# Local notes and exported documents
+*.doc
+*.docx
+*.pdf
+
+# Editor/OS files
+.DS_Store
+.vscode/
