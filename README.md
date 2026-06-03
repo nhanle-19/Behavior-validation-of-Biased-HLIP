@@ -1,23 +1,22 @@
-# Biased HLIP Preliminary Demo
+# Biased H-LIP Methodology Showcase
 
-This repository contains a preliminary numerical demonstration of biased H-LIP
-(Hybrid Linear Inverted Pendulum) ideas for simple five-link walking
-simulations. The current focus is a compact, reproducible workspace for
-experiments with slope/acceleration bias terms and a simple Pinocchio URDF
-model.
+This repository is a small demonstration of the biased H-LIP methodology for
+walking under horizontal bias effects, such as slope or accelerating ground. It
+is meant to show the idea and simulation structure, not to represent current
+active work, a finished controller package, or a complete validation study.
 
-The code is research/prototype quality. It is intended to show the main
-simulation ideas and produce qualitative plots/animations, not to provide a
-finished controller package.
+The examples illustrate how a biased H-LIP equilibrium and pre-impact
+foot-placement law can be connected to a simple five-link walking model. The
+scripts are intentionally lightweight so the methodology can be inspected,
+modified, and reproduced.
 
-## Repository Layout
+## Contents
 
-- `examples/full_order_biased_hlip_acceleration.py` - main five-link full-order
-  biased HLIP walking demonstration using the URDF model.
+- `examples/full_order_biased_hlip_acceleration.py` - five-link Pinocchio
+  demonstration using biased H-LIP foot placement.
 - `examples/hlip_point_mass_check.py` - reduced-order biased H-LIP consistency
-  check using the same pre-impact stepping convention as the full-order demo.
-- `examples/biased_orbit_plot.py` - helper script for biased orbit contour
-  visualization.
+  check using the same pre-impact stepping convention.
+- `examples/biased_orbit_plot.py` - biased orbit contour visualization.
 - `models/five_link_walker.urdf` - simple five-link walker model.
 
 Generated plots, screenshots, documents, caches, and local virtual environments
@@ -25,7 +24,7 @@ are intentionally excluded from version control.
 
 ## Setup
 
-Use a Python environment with NumPy, Matplotlib, and Pinocchio available:
+Use a Python environment with NumPy, Matplotlib, and Pinocchio available.
 
 ```bash
 python -m venv .venv
@@ -48,7 +47,7 @@ From the repository root:
 python examples/full_order_biased_hlip_acceleration.py
 ```
 
-Optional helper demos:
+Reduced-order consistency check and orbit visualization:
 
 ```bash
 python examples/hlip_point_mass_check.py
@@ -62,13 +61,13 @@ checks, use:
 MPLBACKEND=Agg python -m py_compile examples/*.py
 ```
 
-## Notes
+## Methodology Notes
 
-- The main demonstration currently uses the acceleration-bias setup in
+- The five-link example uses the acceleration-bias setup in
   `examples/full_order_biased_hlip_acceleration.py`.
-- The reduced-order check is a consistency tool for the biased fixed point and
-  foot-placement convention; the five-link script remains the main result.
+- The reduced-order check is included to show the biased fixed point and
+  pre-impact foot-placement convention in isolation.
 - The URDF path is resolved relative to the repository root, so the main script
   does not depend on the shell's current working directory.
-- This is a preliminary biased HLIP demonstration. Parameters, gains, and
-  validation criteria should be revisited before treating the results as final.
+- Parameters and gains are example values chosen for demonstration. They should
+  not be interpreted as final tuned results.
